@@ -49,3 +49,8 @@ gem 'rails_12factor', group: :production
 
 #DIVE08 : Install devise
 gem 'devise'
+
+#DIVE09 : Association -> Seed
+gem 'faker'
+ 
+# always execute bundle install to reflect the change you made !!!!!

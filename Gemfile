@@ -53,4 +53,6 @@ gem 'devise'
 #DIVE09 : Association -> Seed
 gem 'faker'
  
+#DIVE10 : Need to add JS runtime in order to compile bootstrap's LESS file into css file
+gem 'therubyracer'
 # always execute bundle install to reflect the change you made !!!!!

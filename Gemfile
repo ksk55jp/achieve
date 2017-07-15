@@ -55,4 +55,9 @@ gem 'faker'
  
 #DIVE10 : Need to add JS runtime in order to compile bootstrap's LESS file into css file
 gem 'therubyracer'
+#DIVE11: setup email related gem
+group :development do
+  gem 'letter_opener_web'
+end 
 # always execute bundle install to reflect the change you made !!!!!
+

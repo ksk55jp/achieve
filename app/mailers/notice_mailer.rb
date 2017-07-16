@@ -11,4 +11,13 @@ class NoticeMailer < ApplicationMailer
     mail to: "ksk55jp@gmail.com",
       subject: '【Achieve】ブログが投稿されました'
   end
+  #
+  # DIVE11: send email to submit message in contact function
+  #
+  def sendmail_contact(contact)
+    @contact=contact
+
+    mail to: "#{contact.email}",
+      subject: '【Achieve】お問い合わせありがとうございました'
+  end
 end

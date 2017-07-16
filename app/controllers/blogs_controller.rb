@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 	before_action :set_blog, only: [:edit, :update, :destroy]
   def index
     Rails.logger.info 'index in'
-		@blogs = Blog.all
+		@blogs = Blog.all.order(:created_at => 'desc')
   end
 
 	def new

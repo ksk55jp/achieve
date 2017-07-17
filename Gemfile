@@ -59,5 +59,13 @@ gem 'therubyracer'
 group :development do
   gem 'letter_opener_web'
 end 
+
+#DIVE12 : Admin window
+gem 'rails_admin'
+
+#DIVE12 : cancan
+gem 'cancan'
+
+
 # always execute bundle install to reflect the change you made !!!!!
 

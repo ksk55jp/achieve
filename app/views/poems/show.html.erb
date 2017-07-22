@@ -1,0 +1,8 @@
+<%=form_for(@poem) do |f|%>
+  <%= @poem.title %> 
+  <br>
+  <%= @poem.content %> 
+  <br>
+  <%= link_to 'back to poemlist', poems_path %>
+<% end %> 
+

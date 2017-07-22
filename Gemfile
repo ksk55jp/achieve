@@ -66,6 +66,14 @@ gem 'rails_admin'
 #DIVE12 : cancan
 gem 'cancan'
 
+#DIVE13 : debug
+group :development, :test do
+  gem 'pry-rails'
+  gem 'better_errors'
+end
+
+#DIVE14: API2
+gem 'activeresource'
+
 
 # always execute bundle install to reflect the change you made !!!!!
-

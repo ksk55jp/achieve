@@ -73,7 +73,8 @@ group :development, :test do
 end
 
 #DIVE14: API2
-gem 'activeresource'
+#gem 'activeresource'
+gem 'her'
 
 
 # always execute bundle install to reflect the change you made !!!!!

@@ -43,5 +43,9 @@ class User < ActiveRecord::Base
     user
   end
 
+  #DIVE 14: Generate Random uid value
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
 
 end

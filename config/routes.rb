@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # DIVE14: OAUTH
   devise_for :users, controllers: {
+    # DIVE14: Normal User Signup needs unique string to avoid unique constraint violation
+    registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do

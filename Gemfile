@@ -70,11 +70,16 @@ gem 'cancan'
 group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
+  # DIVE14: omni auth
+  gem 'dotenv-rails'
 end
 
 #DIVE14: API2
 #gem 'activeresource'
 gem 'her'
 
-
+#DIVE14 OAUTH
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 # always execute bundle install to reflect the change you made !!!!!

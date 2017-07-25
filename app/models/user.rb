@@ -48,4 +48,16 @@ class User < ActiveRecord::Base
     SecureRandom.uuid
   end
 
+  #DIVE 14: Uploading image file
+  mount_uploader :avatar, AvatarUploader
+
+  #DIVE 14: Enable Change for omniauth login user info
+  def update_with_password(params, *options)
+    if provider.blank?
+      super
+    else
+      params.delete :current_password
+      update_without_password(params, *options)
+    end
+  end
 end

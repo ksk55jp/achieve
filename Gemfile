@@ -82,4 +82,7 @@ gem 'her'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+# DIVE Image file uploader
+gem 'carrierwave'
+gem 'mini_magick'
 # always execute bundle install to reflect the change you made !!!!!

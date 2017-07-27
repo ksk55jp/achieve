@@ -21,3 +21,14 @@ input[type="submit"].btn-block{
 #errors_explanation li {
   list-style: none;
 }
+
+.profile_image>img {
+  border-radius: 50%;
+  float: left;
+}
+
+div.row>p:after {
+  content: "";
+  clear: both;
+  display: block;
+}

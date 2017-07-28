@@ -2,8 +2,9 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!
 	before_action :set_blog, only: [:edit, :update, :destroy]
   def index
-    Rails.logger.info 'index in'
+    Rails.logger.info 'blogs_controller#index in'
 		@blogs = Blog.all.order(:created_at => 'desc')
+    Rails.logger.info 'blogs_controller#index out'
   end
 
 	def new

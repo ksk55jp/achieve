@@ -14,3 +14,9 @@
 **.swp
 # Ignore env file added by ksk on DIVE10
 .env 
+
+memo.txt
+
+#Ignore
+public/uploads/**/*.png
+public/uploads/**/*.jpg

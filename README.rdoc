@@ -1,38 +1,16 @@
-== Achieve README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# Test H1
-## Test H2
-### Test H3
+# DIVE15 Ajaxによる非同期通信
+point 
+* ビュー内form_forの引数に```form_for([blog,comment], remote: true)```を入れる
+* コントローラーのアクションにjsをレンダリングするコードをおく
 
 ```ruby
-p "hello"
+respond_to do |format|
+  format.html{redirect_to blog_path(@blog), notice: 'コメントを投稿しました'}
+  format.js { render :index }
+end
 ```
-
-
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* JSによる画面更新
+```Javascript
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.blog.comments, blog: @comment.blog }) %>")
+$(':text').val('')
+```

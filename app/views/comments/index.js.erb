@@ -1,0 +1,4 @@
+console.log("[ACHIEVE_DEBUG] index.js.erb in")
+  <% Rails.logger.info "here !!" %>
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.blog.comments, blog: @comment.blog }) %>")
+$(':text').val('')

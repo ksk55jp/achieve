@@ -1,10 +1,18 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-	before_action :set_blog, only: [:edit, :update, :destroy]
+	before_action :set_blog, only: [:edit, :update, :destroy, :show]
   def index
-    Rails.logger.info 'blogs_controller#index in'
 		@blogs = Blog.all.order(:created_at => 'desc')
-    Rails.logger.info 'blogs_controller#index out'
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  #show アクションを定義します。入力フォームと一覧を表示するためインスタンスを２つ生成します。
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
   end
 
 	def new

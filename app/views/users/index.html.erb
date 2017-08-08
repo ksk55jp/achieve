@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="container-child col-md-8 col-sm-4 col-xs-6">
+    <h2>現在のユーザー</h2>
+    <div class="profile_img"><%= profile_img(@users.find_by(id: current_user.id)) %></div>
+    <p>名前：<%= @users.find_by(id: current_user.id).name %></p>
+    <p>メールアドレス：<%= @users.find_by(id: current_user.id).email %></p>
+    <%= link_to "詳細ページへ", user_path(@users.find_by(id: current_user.id)), class: 'btn btn-info' %>
+
+    <h2>他のユーザー</h2>
+    <% @users.each do |user| %>
+      <% unless user.id == current_user.id %>
+        <div class="each_user">
+          <div class="profile_img"><%= profile_img(user) %></div>
+          <p>名前：<%= user.name %></p>
+          <p>メールアドレス：<%= user.email %></p>
+          <%= link_to "詳細ページへ", user_path(user.id), class: 'btn btn-info' %>
+          <%= render 'follow_form', user: user %>
+        </div>
+      <% end %> 
+    <% end %>
+  </div>
+</div>

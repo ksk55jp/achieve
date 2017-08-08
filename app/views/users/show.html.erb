@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <h3>ユーザー詳細画面</h3>
+    <!-- <%= form_for(@user) do |f| %> -->
+      <p>名前：<%=@user.name%></p>
+      <p>メールアドレス：<%=@user.email%></p>
+      <div class="profile_img"><%= profile_img(@user)%></div>
+      <% if @user.followed_users.count > 0%>
+        <p><%= @user.name %>さんがフォローしているユーザーは（<%= @user.followed_users.count %>）人 </p>
+        <!-- insert partial for followed users -->
+        <%= render 'followed_users', users: @user.followed_users %>
+      <% else %>
+        <p><%= @user.name %>さんは現在ユーザーをフォローしていません。</p>
+      <% end %>
+      <% if @user.followers.count > 0 %>
+        <p><%= @user.name %>さんをフォローしているユーザーは（<%= @user.followers.count %>）人</p>
+        <%= render 'followers', users: @user.followers %>
+      <% else %>
+        <p><%= @user.name %>さんにはまだフォロワーさんがいません。</p>
+      <% end %>
+    <!-- <% end %> --> 
+  </div>
+</div>

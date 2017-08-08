@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  #DIVE16: Follow # Point is to describe this below devise_for clause
+  resources :users, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
+
   resources :blogs do
     # DIVE15: Comment
     resources :comments

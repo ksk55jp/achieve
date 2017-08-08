@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
   has_many :blogs, dependent: :destroy
   #DIVE15: Comment
   has_many :comments, dependent: :destroy
+  #DIVE16: Follow
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_relationships, source: :follower
 
   #DIVE14: Facebook OmniAuth
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -61,5 +66,16 @@ class User < ActiveRecord::Base
       params.delete :current_password
       update_without_password(params, *options)
     end
+  end
+
+  #DIVE16:Follow
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy
   end
 end

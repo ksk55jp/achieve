@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
 
+  #DIVE 19_1: Messaging 
+  resources :conversations do
+    resources :messages
+  end
+
   resources :blogs do
     # DIVE15: Comment
     resources :comments

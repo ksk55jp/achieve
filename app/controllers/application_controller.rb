@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   #Execute method in before_action
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  #DIVE19_2 : Notification
+  before_action :current_notifications, if: :signed_in?
    
   #Substitute array into variable PERMISSIBLE_ATTRIBUTES
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
@@ -17,4 +20,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES) 
   end 
 
+  # DIVE19_2 : Notification
+  def current_notifications
+    @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
+  end
 end

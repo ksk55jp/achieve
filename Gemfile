@@ -85,4 +85,8 @@ gem 'omniauth-facebook'
 # DIVE Image file uploader
 gem 'carrierwave'
 gem 'mini_magick'
+
+
+#DIVE19_2: Push Notification
+gem 'pusher'
 # always execute bundle install to reflect the change you made !!!!!

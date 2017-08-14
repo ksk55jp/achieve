@@ -1,9 +1,10 @@
 <ul>
-  <% comments.each do |comment| %>
+  <% comments.order(id: :asc).each do |comment| %>
     <% unless comment.id.nil? %>
       <li>
         <p class="left"><%= comment.user.name %>さんがコメントしました。</p>
         <p class="left"><%= comment.content %></p>
+        <p class="left"><%= posted_time(comment.created_at)%></p>
         <% if current_user.id == comment.user.id %>
           <p class="right">
             <%= link_to '', edit_blog_comment_path(blog, comment), class: "fa fa-pencil-square-o fa-lg" %>

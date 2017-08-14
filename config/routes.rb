@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
   resources :poems, only: [:index, :show]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # DIVE14: OAUTH

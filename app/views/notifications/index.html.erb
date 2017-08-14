@@ -1,0 +1,18 @@
+<h2>お知らせ</h2>
+<ul>
+  <div class="notification_area">
+  <% @notifications.each do |notification| %>
+    <hr>
+    <li>
+      <span><%= notification.read ? "": "未読　⬇️  既読にするにはブログタイトルをクリック " %></span>
+      <p>
+        <%= notification.comment.user.try(:name) %>さんが
+      </p>
+      <p>
+        あなたのブログ<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>にコメントしました
+      </p>
+      <p><%= posted_time(notification.created_at) %></p>
+    </li>
+  <% end %>
+  </div>
+</ul>

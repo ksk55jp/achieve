@@ -37,3 +37,10 @@ point
 * before_action文にブロック構文を使用する
 * テーブル名と違うアソシエーションでテーブル名を定義する
 * モデルに便利メソッドを定義(messageの message_time)
+
+# DIVE19_2 通知機能
+point
+* Websocket通知サービスPusherを利用する
+* 利用開始までの流れはfbやtwitterでoauthを使ったところと似ている
+* Pusher.triggerで発信
+* jsのalertを使ってポップアップ

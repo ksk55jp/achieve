@@ -54,7 +54,8 @@ gem 'devise'
 gem 'faker'
  
 #DIVE10 : Need to add JS runtime in order to compile bootstrap's LESS file into css file
-gem 'therubyracer'
+#gem 'therubyracer' ## DIVE20_2: Added platforms arguement
+gem 'therubyracer', platforms: :ruby
 #DIVE11: setup email related gem
 group :development do
   gem 'letter_opener_web'
@@ -71,7 +72,14 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   # DIVE14: omni auth
-  gem 'dotenv-rails'
+  # DIVE20_2: Move out of this block so that all envs can read it
+  #gem 'dotenv-rails'
+  # DIVE20_2: Added
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 #DIVE14: API2
@@ -90,3 +98,10 @@ gem 'mini_magick'
 #DIVE19_2: Push Notification
 gem 'pusher'
 # always execute bundle install to reflect the change you made !!!!!
+
+#DIVE20_2: Store image file on S3 to minimize load on application
+gem 'fog'
+
+#DIVE20_2: For Autodeployment
+gem 'dotenv-rails'
+gem 'unicorn'

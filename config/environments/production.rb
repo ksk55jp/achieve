@@ -89,5 +89,5 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = {host: 'pure-anchorage-34202.herokuapp.com'}
+  config.action_mailer.default_url_options = {host: '13.112.73.168'}
 end
